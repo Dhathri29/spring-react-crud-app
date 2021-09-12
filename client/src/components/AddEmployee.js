@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { useHistory } from "react-router-dom";
+import addEmployee from '../actions/addEmployee';
 
 const AddEmployee = () => {
     const history = useHistory();
@@ -25,8 +26,7 @@ const AddEmployee = () => {
 
     const handleSubmit = (e) =>{
         e.preventDefault();
-        let newUser = formData;
-        console.log(newUser);
+        addEmployee(formData,history);
     }
     const handleCancel = () =>{
         history.push("/employees")
