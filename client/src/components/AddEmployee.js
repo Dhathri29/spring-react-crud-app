@@ -27,7 +27,7 @@ const AddEmployee = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (id === "-1") {
+        if (id === "_add") {
             await addEmployee(formData, history);
         } else {
             await updateEmployee(formData, id, history);
@@ -56,7 +56,7 @@ const AddEmployee = () => {
     }, [getEmployeeById]);
 
     const getTitle = () => {
-        if (id === "-1") {
+        if (id === "_add") {
             return <h3 className="text-center"> Add Employee</h3>;
         } else {
             return <h3 className="text-center"> Update Employee</h3>;

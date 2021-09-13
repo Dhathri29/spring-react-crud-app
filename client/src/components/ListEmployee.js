@@ -27,7 +27,7 @@ const ListEmployee = () => {
     }, [getEmployees]);
 
     const handleAddEmployee = () => {
-        history.push("/add/-1");
+        history.push("/add/_add");
     };
 
     const handleUpdateEmployee = (id) => {
