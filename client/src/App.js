@@ -13,12 +13,9 @@ function App() {
                 <Header />
                 <div className="container">
                     <switch>
-                        <Route path="/" exact component={ListEmployee}/>
-                        <Route
-                            path="/employees"
-                            component={ListEmployee}
-                        />
-                        <Route path="/add" component={AddEmployee}/>
+                        <Route path="/" exact component={ListEmployee} />
+                        <Route path="/employees" component={ListEmployee} />
+                        <Route path="/add/:id" component={AddEmployee} />
                     </switch>
                 </div>
                 <Footer />

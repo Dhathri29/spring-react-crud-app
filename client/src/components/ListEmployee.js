@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 
-import getEmployee from "../actions/ListEmployee";
+import getEmployees from "../actions/ListEmployee";
 
 const ListEmployee = () => {
     const history = useHistory();
+    const { id } = useParams();
+
     const [formData, setFormData] = useState({
         employees: [],
     });
@@ -15,24 +17,33 @@ const ListEmployee = () => {
 
     useEffect(() => {
         const getDetails = async () => {
-            const employeeData = await getEmployee();
+            const employeeData = await getEmployees();
             setFormData({
                 ...formData,
                 employees: employeeData,
             });
         };
         getDetails();
-    }, [getEmployee]);
+    }, [getEmployees]);
 
     const handleAddEmployee = () => {
-        history.push("/add")
+        history.push("/add/-1");
+    };
+
+    const handleUpdateEmployee = (id) => {
+        history.push(`/add/${id}`);
     };
 
     return (
         <div>
             <h2 className="text-center">Employee List</h2>
-            <div className = "row">
-                <button className="btn btn-primary" onClick={() => handleAddEmployee()}>Add Employee</button>
+            <div className="row">
+                <button
+                    className="btn btn-primary"
+                    onClick={() => handleAddEmployee()}
+                >
+                    Add Employee
+                </button>
             </div>
             <div className="row">
                 <table className="table table-striped table-bordered">
@@ -50,6 +61,16 @@ const ListEmployee = () => {
                                 <td> {employee.firstName}</td>
                                 <td> {employee.lastName}</td>
                                 <td> {employee.emailId}</td>
+                                <td>
+                                    <button
+                                        className="btn btn-primary"
+                                        onClick={() =>
+                                            handleUpdateEmployee(employee.id)
+                                        }
+                                    >
+                                        Update
+                                    </button>
+                                </td>
                             </tr>
                         ))}
                     </tbody>
