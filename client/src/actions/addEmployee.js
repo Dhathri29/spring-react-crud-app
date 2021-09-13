@@ -22,4 +22,9 @@ const updateEmployee = async (employee, employeeId, history) => {
     return res;
 };
 
-export { addEmployee, getEmployeeById, updateEmployee };
+const deleteEmployee = async (employeeId, history) => {
+    const res = await axios.delete(`${EMPLOYEE_API_BASE_URL}/${employeeId}`);
+    return res;
+};
+
+export { addEmployee, getEmployeeById, updateEmployee, deleteEmployee };

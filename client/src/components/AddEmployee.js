@@ -43,7 +43,7 @@ const AddEmployee = () => {
         } else {
             const getEmployee = async () => {
                 const employee = await getEmployeeById(id);
-                console.log(employee.firstName);
+
                 setFormData({
                     ...formData,
                     firstName: employee.firstName,
