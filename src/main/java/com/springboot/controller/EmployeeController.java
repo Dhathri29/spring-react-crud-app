@@ -25,7 +25,7 @@ import com.springboot.repository.EmployeeRepository;
 
 @CrossOrigin(origins = "http://localhost:3000/")
 @RestController
-@RequestMapping("/api/v1")
+//@RequestMapping("/api/v1")
 public class EmployeeController {
 
 	@Autowired
