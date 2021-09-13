@@ -38,7 +38,7 @@ const AddEmployee = () => {
     };
 
     useEffect(() => {
-        if (id == -1) {
+        if (id === -1) {
             return;
         } else {
             const getEmployee = async () => {
@@ -54,12 +54,20 @@ const AddEmployee = () => {
             getEmployee();
         }
     }, [getEmployeeById]);
+
+    const getTitle = () => {
+        if (id === "-1") {
+            return <h3 className="text-center"> Add Employee</h3>;
+        } else {
+            return <h3 className="text-center"> Update Employee</h3>;
+        }
+    };
     return (
         <div>
             <div className="container">
                 <div className="row">
                     <div className="card col-md-6 offset-md-3 offset-md-3">
-                        <h3 className="text-center"> Add Employee</h3>
+                        {getTitle()}
                         <div className="card-body">
                             <form>
                                 <div className="form-group">
@@ -93,7 +101,7 @@ const AddEmployee = () => {
                                     />
                                 </div>
                                 <button
-                                    className="btn btn-success"
+                                    className="btn btn-success mr-3"
                                     onClick={handleSubmit}
                                 >
                                     Save
