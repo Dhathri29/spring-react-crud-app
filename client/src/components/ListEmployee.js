@@ -37,12 +37,16 @@ const ListEmployee = () => {
         history.push("/employees");
     };
 
+    const handleViewEmployee = (id) => {
+        history.push(`/view/${id}`);
+    };
+
     return (
         <div>
             <h2 className="text-center">Employee List</h2>
             <div className="row">
                 <button
-                    className="btn btn-primary"
+                    className="btn btn-primary mb-3"
                     onClick={() => handleAddEmployee()}
                 >
                     Add Employee
@@ -74,12 +78,20 @@ const ListEmployee = () => {
                                         Update
                                     </button>
                                     <button
-                                        className="btn btn-danger"
+                                        className="btn btn-danger mr-3"
                                         onClick={() =>
                                             handleDeleteEmployee(employee.id)
                                         }
                                     >
                                         Delete
+                                    </button>
+                                    <button
+                                        className="btn btn-info"
+                                        onClick={() =>
+                                            handleViewEmployee(employee.id)
+                                        }
+                                    >
+                                        View Details
                                     </button>
                                 </td>
                             </tr>
