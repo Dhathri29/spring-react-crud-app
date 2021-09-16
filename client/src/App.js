@@ -1,5 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import "react-app-polyfill/stable";
 
 import ListEmployee from "./components/ListEmployee";
 import Header from "./components/Header";
